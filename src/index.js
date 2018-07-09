@@ -1,33 +1,13 @@
-// Import stylesheets
 import './style.css';
 import graphApi from './api.js';
+
 import MountData from './graph.js';
 
-
 var d3 = require('d3');
-// Write Javascript code!
+
 const appDiv = document.querySelector('.container');
-appDiv.innerHTML += `<h1>Test Marfeel JS</h1>`;
 
 
-
-
-
-
-
-
-
-
-// model
-// graphApi.call()
-// .then((res) => {
-//   for (var graph of res) {
-//     mountData(graph)
-//   }
-// })
-// .catch(err => console.log(err))
-
-//controller 
 class GraphCtrl {
 	constructor(graphView) {
     this.graphView = graphView;
@@ -46,7 +26,6 @@ class GraphCtrl {
   }
         
 }
-// view
 
 class GraphView {
 	init() {
@@ -54,7 +33,7 @@ class GraphView {
     this.renderGraphModule()
   }
   renderGraphModule() {
-    async function f1() {
+    async function waitPopulate() {
       const graphics = await graphApp.getData()
       for (var graph of graphics) {
         new MountData({
@@ -64,16 +43,18 @@ class GraphView {
           size: graph.size
         })
       }
-        // mountData(graphics[0])
+        
     }
-    f1()
+    waitPopulate()
   }
 }
 
 
-// APP
+
+
+
 
 const graphView = new GraphView();
 const graphApp = new GraphCtrl(graphView);
-
 graphApp.init();
+

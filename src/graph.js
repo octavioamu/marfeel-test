@@ -26,11 +26,11 @@ class MountData {
           <div class="graph-info">
             <div class="graph-device tablet">
               <span class="info-title" style="color:${this.graphic.colors.colorTablet};">Tablet</span>
-              <span>${this.graphic.totalTablet / this.graphic.totalValue * 100}%</span> <span>${ES.format(",.0f")(this.graphic.totalTablet)}${this.graphic.postSymbol || ''}</span>
+              <span class="value-percent">${this.graphic.totalTablet / this.graphic.totalValue * 100}%</span> <span class="value-int">${ES.format(",.0f")(this.graphic.totalTablet)}${this.graphic.postSymbol || ''}</span>
             </div>
             <div class="graph-device smartphone">
               <span class="info-title" style="color:${this.graphic.colors.colorSmartphone};">Smartphone</span>
-              <span>${this.graphic.totalSmartphone / this.graphic.totalValue * 100}%</span> <span>${ES.format(",.0f")(this.graphic.totalSmartphone)}${this.graphic.postSymbol || ''}</span>
+              <span class="value-percent">${this.graphic.totalSmartphone / this.graphic.totalValue * 100}%</span> <span class="value-int">${ES.format(",.0f")(this.graphic.totalSmartphone)}${this.graphic.postSymbol || ''}</span>
             </div>
           
           </div>
@@ -54,6 +54,7 @@ class MountData {
       var radius = Math.min(width, height) / 2;
       var step = 10
       var innerRadius = radius - step;
+      console.log(innerRadius)
   
       const svg = d3.select(this.element)
       .append("svg")
@@ -78,7 +79,13 @@ class MountData {
       svg
       .append("g")
       .attr('class', 'title')
-  
+
+      svg
+      .append("g")
+      .attr('class', 'cross')
+      .attr('transform', function () {
+        return 'translate(' + width / 2 + ',  ' + height / 2 + ' )';
+      })
   
       svg.append('clipPath')
       .attr("id", clipId)
@@ -93,10 +100,7 @@ class MountData {
       var arcGenerator = d3.arc()
         .innerRadius(innerRadius)
         .outerRadius(radius)
-      // .padAngle(.02)
-      // .padRadius(100)
-      // .cornerRadius(4);
-  
+     
       var dataRad = [this.graphic.totalTablet, this.graphic.totalSmartphone];
       var arcData = pieGenerator(dataRad);
   
@@ -111,6 +115,8 @@ class MountData {
           return colors[i];
         })
         .attr('d', arcGenerator)
+        
+        
   
   
       /// text
@@ -128,7 +134,22 @@ class MountData {
         .attr('class', 'total-value')
         .text(`${ES.format(",.0f")(this.graphic.totalValue)}${this.graphic.postSymbol || ''} `)
         .attr("transform", 'translate(' + width / 2 + ', ' + (height + 30) / 2 + ')')
-  
+        
+
+      //CROSS
+      const crossPoint = [0, 90, 180, 270]
+      svg.select('g.cross')
+        .selectAll('line')
+        .data(crossPoint)
+        .enter()
+        .append("line")
+        .attr('x1', innerRadius - step + 4)
+        .attr('x2', innerRadius - 2)
+        .attr('stroke', '#AEAEAE')
+        .attr('stroke-width', 2)
+        .attr('transform', function(d) {
+          return 'rotate(' + d + ')';
+        })
   
       // AREA CHART
   

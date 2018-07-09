@@ -5,9 +5,10 @@
   "postSymbol": "€",
   "totalTablet": "120000",
   "totalSmartphone": "80000",
+  "size":167,
   "colors": {
-    "colorTablet": "#3A6B12",
-    "colorSmartphone": "#89D436"
+    "colorTablet": "#89D436",
+    "colorSmartphone": "#3A6B12"
   },
 
   "valuesWeek": [[0, 25], [1, 37], [2, 32], [3, 40], [4, 30], [5, 20],
@@ -17,14 +18,33 @@
 },
 {
   "id": 2,
-  "name": "revenue2",
-  "totalValue": "200000",
-  "postSymbol": "€",
-  "totalTablet": "120000",
-  "totalSmartphone": "80000",
+  "name": "impresions",
+  "totalValue": "50000000",
+  "postSymbol": "",
+  "totalTablet": "20000000",
+  "totalSmartphone": "30000000",
+  "size":167,
   "colors": {
-    "colorTablet": "#3A6B12",
-    "colorSmartphone": "#89D436"
+    "colorTablet": "#70C8E6",
+    "colorSmartphone": "#2C566B"
+  },
+
+  "valuesWeek": [[0, 25], [1, 37], [2, 32], [3, 40], [4, 30], [5, 20],
+  [6, 10], [7, 22], [8, 30], [9, 12], [10, 17],
+  [11, 16], [12, 31], [13, 45], [14, 10], [15, 15],
+  [16, 24], [17, 30], [18, 40], [19, 20], [20, 5]]
+},
+{
+  "id": 3,
+  "name": "visits",
+  "totalValue": "600000000",
+  "postSymbol": "",
+  "totalTablet": "480000000",
+  "totalSmartphone": "120000000",
+  "size":167,
+  "colors": {
+    "colorTablet": "#EFC50A",
+    "colorSmartphone": "#BE5B0F"
   },
 
   "valuesWeek": [[0, 25], [1, 37], [2, 32], [3, 40], [4, 30], [5, 20],

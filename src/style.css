@@ -2,15 +2,51 @@
   --circle-color: #89D2FF;
   --triangle-color: #FF8989;
   --title-color: #AEAEAE;
+  --border-color: #E4E4E4;
 }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
-h1, h2 {
-  /* font-family: Lato; */
-  /* font-family: 'Source Sans Pro', sans-serif; */
 
+.container {
+  max-width: 1240px;
+  margin: auto;
+}
+
+.graph-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.graph {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: .5em;
+  flex: 0 1 25%;
+
+}
+
+.graph > .graph-box {
+  margin: auto;
+  text-align: center;
+  padding: 1em 2em 0;
+}
+
+.graph-info {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 1 100%;
+}
+
+.graph-device {
+  flex: 1 1 50%;
+}
+.graph-device.tablet {
+  text-align: left;
+}
+.graph-device.smartphone {
+  text-align: right;
 }
 
 
@@ -22,10 +58,7 @@ h1, h2 {
 .total-value {
   font-size: 28px;
 }
-div.bar {
-				display: inline-block;
-				width: 20px;
-				height: 75px;	/* Gets overriden by D3-assigned height below */
-				margin-right: 2px;
-				background-color: teal;
-			}
+.info-title {
+  font-weight: 600;
+  display: block;
+}
